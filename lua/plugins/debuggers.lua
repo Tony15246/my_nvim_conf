@@ -30,7 +30,7 @@ return {
                 id = "cppdbg",
                 type = "executable",
                 command =
-                "/home/tony/.vscode/extensions/ms-vscode.cpptools-1.21.6-linux-x64/debugAdapters/bin/OpenDebugAD7",
+                "/home/tony/.cpptools/extension/debugAdapters/bin/OpenDebugAD7",
             }
             dap.configurations.cpp = {
                 {
@@ -41,9 +41,7 @@ return {
                         vim.system({ "make" }, { cwd = vim.fn.getcwd() .. "/build" }):wait()
                     end,
                     request = "launch",
-                    program = function()
-                        return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/build/", "file")
-                    end,
+                    program = "${workspaceFolder}/build/${fileBasenameNoExtension}",
                     cwd = "${workspaceFolder}/build",
                     stopAtEntry = true,
                 },
