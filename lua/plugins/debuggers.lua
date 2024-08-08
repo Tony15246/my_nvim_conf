@@ -1,0 +1,54 @@
+return {
+  {
+    "rcarriga/nvim-dap-ui",
+    dependencies = {
+      "mfussenegger/nvim-dap",
+      "nvim-neotest/nvim-nio",
+      "mfussenegger/nvim-dap-python",
+    },
+    config = function()
+      local dap = require("dap")
+      local dapui = require("dapui")
+
+      require("dapui").setup()
+      require("dap-python").setup("/home/tony/Code/Python/myenv/bin/python")
+
+      dap.listeners.before.attach.dapui_config = function()
+        dapui.open()
+      end
+      dap.listeners.before.launch.dapui_config = function()
+        dapui.open()
+      end
+
+      vim.keymap.set("n", "<F5>", dap.continue, {})
+      vim.keymap.set("n", "<F10>", dap.step_over, {})
+      vim.keymap.set("n", "<F11>", dap.step_into, {})
+      vim.keymap.set("n", "<F12>", dap.step_out, {})
+      vim.keymap.set("n", "<Leader>b", dap.toggle_breakpoint, {})
+      vim.keymap.set("n", "<Leader>ds", dapui.toggle, {})
+      dap.adapters.cppdbg = {
+        id = "cppdbg",
+        type = "executable",
+        command = "/home/tony/.vscode/extensions/ms-vscode.cpptools-1.21.6-linux-x64/debugAdapters/bin/OpenDebugAD7",
+      }
+      dap.configurations.cpp = {
+        {
+          name = "Launch file",
+          type = "cppdbg",
+          preLaunchTask = function()
+            vim.system({ "cmake", ".." }, { cwd = vim.fn.getcwd() .. "/build" }):wait()
+            vim.system({ "make" }, { cwd = vim.fn.getcwd() .. "/build" }):wait()
+          end,
+          request = "launch",
+          program = function()
+            return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/build/", "file")
+          end,
+          cwd = "${workspaceFolder}/build",
+          stopAtEntry = true,
+        },
+      }
+      dap.configurations.c = dap.configurations.cpp
+      dap.configurations.rust = dap.configurations.cpp
+    end,
+  },
+}
