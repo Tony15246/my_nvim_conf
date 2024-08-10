@@ -10,7 +10,10 @@ return {
                 lualine_x = {
                     {
                         require("noice").api.statusline.mode.get,
-                        cond = require("noice").api.statusline.mode.has,
+                        cond = function()
+                            return require("noice").api.statusline.mode.has()
+                                and string.find(require("noice").api.statusline.mode.get(), "recording") ~= nil
+                        end,
                         color = { fg = "#ff9e64" },
                     },
                     {
