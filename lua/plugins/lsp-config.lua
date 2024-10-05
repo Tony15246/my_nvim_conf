@@ -14,7 +14,7 @@ return {
         },
         config = function()
             require("mason-lspconfig").setup({
-                ensure_installed = { "lua_ls", "tsserver", "clangd", "cmake", "pyright" },
+                ensure_installed = { "lua_ls", "ts_ls", "clangd", "cmake", "pyright" },
             })
         end,
     },
@@ -27,7 +27,7 @@ return {
             lspconfig.lua_ls.setup({
                 capabilities = capabilities,
             })
-            lspconfig.tsserver.setup({
+            lspconfig.ts_ls.setup({
                 capabilities = capabilities,
             })
             lspconfig.clangd.setup({
