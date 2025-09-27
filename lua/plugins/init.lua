@@ -27,6 +27,7 @@ return {
         opts = {
             ensure_installed = {
                 "c",
+                "cpp",
                 "lua",
                 "python",
                 "javascript",

@@ -39,6 +39,7 @@ M.mason = {
         "flake8",
         "black",
         "isort",
+        "clangd",
     },
 }
 return M
