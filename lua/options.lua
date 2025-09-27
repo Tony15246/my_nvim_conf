@@ -7,3 +7,4 @@ o.cursorlineopt = "both" -- to enable cursorline!
 o.shiftwidth = 4
 o.tabstop = 4
 o.softtabstop = 4
+o.winborder = "rounded"
