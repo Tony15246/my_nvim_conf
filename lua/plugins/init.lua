@@ -23,6 +23,11 @@ return {
     { import = "nvchad.blink.lazyspec" },
 
     {
+        "Saghen/blink.cmp",
+        opts = require("configs.blink"),
+    },
+
+    {
         "nvim-treesitter/nvim-treesitter",
         opts = {
             ensure_installed = {
