@@ -22,11 +22,15 @@ M.base46 = {
 }
 
 M.nvdash = { load_on_startup = true }
--- M.ui = {
---       tabufline = {
---          lazyload = false
---      }
--- }
+
+M.ui = {
+    cmp = {
+        icons_left = true,
+    },
+    tabufline = {
+        lazyload = false,
+    },
+}
 
 M.mason = {
     pkgs = {

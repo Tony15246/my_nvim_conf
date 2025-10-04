@@ -28,6 +28,25 @@ return {
     },
 
     {
+        "mikavilpas/yazi.nvim",
+        version = "*",
+        event = "VeryLazy",
+        dependencies = {
+            { "nvim-lua/plenary.nvim", lazy = true },
+        },
+        keys = {
+            {
+                "<leader>cw",
+                "<cmd>Yazi cwd<cr>",
+                desc = "Open the file manager in nvim's working directory",
+            },
+        },
+        opts = {
+            open_for_directories = true,
+        },
+    },
+
+    {
         "nvim-treesitter/nvim-treesitter",
         opts = {
             ensure_installed = {
