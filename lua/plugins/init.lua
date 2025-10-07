@@ -70,7 +70,16 @@ return {
                 "query",
                 "markdown",
                 "markdown_inline",
+                "latex",
+                "yaml",
             },
         },
+    },
+
+    {
+        "MeanderingProgrammer/render-markdown.nvim",
+        ft = { "markdown", "quarto" },
+        dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons" }, -- if you prefer nvim-web-devicons
+        opts = {},
     },
 }

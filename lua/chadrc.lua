@@ -6,18 +6,11 @@
 local M = {}
 
 M.base46 = {
-    theme = "github_light",
+    theme = "vscode_dark",
 
     hl_override = {
         Comment = { italic = true },
         ["@comment"] = { italic = true },
-        -- ["@ibl.scope.underline.1"] = { underline = true, bg = "NONE" },
-        -- ["@ibl.scope.underline.2"] = { underline = true, bg = "NONE" },
-        -- ["@ibl.scope.underline.3"] = { underline = true, bg = "NONE" },
-        -- ["@ibl.scope.underline.4"] = { underline = true, bg = "NONE" },
-        -- ["@ibl.scope.underline.5"] = { underline = true, bg = "NONE" },
-        -- ["@ibl.scope.underline.6"] = { underline = true, bg = "NONE" },
-        -- ["@ibl.scope.underline.7"] = { underline = true, bg = "NONE" },
     },
 }
 
