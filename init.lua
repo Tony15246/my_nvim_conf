@@ -10,9 +10,9 @@ vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 vim.o.winborder = "rounded"
-vim.opt.completeopt = "menuone,noinsert,preselect,fuzzy,nosort,preview"
+-- vim.opt.completeopt = "menuone,noinsert,preselect,fuzzy,nosort,preview"
 vim.opt.clipboard:append("unnamedplus")
-vim.g.clipboard = "win32yank"
+-- vim.g.clipboard = "wl-copy"
 
 -- Define LSP servers to enable
 local servers = { "lua_ls", "pyright", "ts_ls", "gopls" }
@@ -98,7 +98,7 @@ vim.lsp.config("*", { capabilities = capabilities })
 vim.lsp.config("lua_ls", {
     settings = {
         Lua = {
-            diagnostics = { globals = { "vim", "mpv" } },
+            diagnostics = { globals = { "vim", "mp" } },
         },
     },
 })
